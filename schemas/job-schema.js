@@ -1,12 +1,14 @@
 'use strict';
 
 var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
 
 var Job = null;
 
-module.exports = function(collectionName, payloadRefType) 
+module.exports = function(collectionName, payloadRefType, newMongoose)
 {
+	if(newMongoose) mongoose = newMongoose;
+	var Schema = mongoose.Schema;
+
 	if(Job == null)
 	{
 		Job = new Schema({
@@ -32,7 +34,7 @@ module.exports = function(collectionName, payloadRefType)
 				default: 0,
 				required: true
 			},
-			// Payload is a reference to another mongoose object 
+			// Payload is a reference to another mongoose object
 			payload: {
 				type: payloadRefType,
 				required: true
