@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha --reporter spec --recursive",
-    "coverage": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --recursive"
+    "coverage": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --recursive",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "keywords": [
     "mongoose",
@@ -24,7 +26,8 @@
   "homepage": "https://github.com/QN-Solutions/MongooseQueue",
   "dependencies": {
     "mongoose": "^4.5.8",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "bluebird": "^3.4.1",
@@ -32,5 +35,6 @@
     "istanbul": "^0.4.4",
     "mocha": "^3.0.1",
     "mockgoose": "^6.0.6"
-  }
+  },
+  "snyk": true
 }
